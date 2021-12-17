@@ -62,19 +62,14 @@ void q1(char *w, char *t , int wordlen, int textlen) {
                     }
                     break;
                 }
-                else if(!letterA || !letterB){
+                else if(!letterA && letterB){
+                    while((*start < 65 || (*start > 90 && *start < 97) || *start > 122)){start++;}
                     if(run_index_ans!=0){
                         ans[run_index_ans++] = '~';
                     }
                     while(start<=end)
                     {
-                        if((*start >= 65 && *start <= 90) || (*start >= 97 && *start <= 122)){
                             ans[run_index_ans++] = *start++;
-                        }
-                        else {
-                            start++;
-                            i++;
-                        }
                     }
                     break;
                 }
