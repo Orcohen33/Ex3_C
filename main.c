@@ -19,5 +19,6 @@ int main() {
     printf("\n");
     printf("Anagram Sequences: ");
     q3(w,t,wordlen,textlen);
+    printf("\n");
     return 0;
 }
