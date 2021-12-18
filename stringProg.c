@@ -272,25 +272,37 @@ int isAnagram(char *start ,char *end, char *word , int wordlen) {
     int source[26] = {0}, temp[26] = {0}, c = 0;
     if ((*start >= 65 && *start <= 90) || (*start >= 97 && *start <= 122)) {
         while (start < end + 1) {
-            if ((*start >= 65 && *start <= 90) || (*start >= 97 && *start <= 122)) {
+            if ((*start >= 97 && *start <= 122)){
                 temp[*start - 'a']++;
                 start++;
-            } else return 0;
+            }else if((*start >= 65 && *start <= 90)){
+                temp[*start - 'A']++;
+                start++;
+            }
+            else return 0;
         }
     }else{
         while((*start < 65 || (*start > 90 && *start < 97) || *start > 122)){start++;}
         while (start < end + 1) {
-            if ((*start >= 65 && *start <= 90) || (*start >= 97 && *start <= 122)) {
+            if ((*start >= 97 && *start <= 122)){
                 temp[*start - 'a']++;
                 start++;
-            } else return 0;
+            }else if((*start >= 65 && *start <= 90)){
+                temp[*start - 'A']++;
+                start++;
+            }
+            else return 0;
         }
     }
     for (int i = 0; i < wordlen; ++i) {
-        if((*word >= 65 && *word <= 90) || (*word >= 97 && *word <= 122)) {
+        if((*word >= 97 && *word <= 122)) {
             source[*word - 'a']++;
             word++;
-        }else return 0;
+        }else if((*word >= 65 && *word <= 90)) {
+            source[*word - 'A']++;
+            word++;
+        }
+        else return 0;
     }
 
     for (c = 0; c < 26 ; ++c) {
